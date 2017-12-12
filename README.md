@@ -1,5 +1,5 @@
 # responsive-stylesheet
-小巧的快速开发响适应布局的样式表
+小巧的快速开发响应式布局的样式表
 
 因为bootstrap是基于jQuery的，如果只是想要响应式布局，那么引入bootstrap和jQuery则太浪费资源了
 
