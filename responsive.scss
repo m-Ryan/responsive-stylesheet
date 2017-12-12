@@ -1,0 +1,224 @@
+@charset "UTF-8";
+//   自适应布局推荐rem作单位
+html {
+    font-size: 625%; 
+}
+
+body {
+    font-size: 0.14rem;
+    color: #333;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+p {
+    padding: 0;
+    margin: 0;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+* {
+    box-sizing: border-box;
+}
+img{
+    border: none;
+}
+
+//simplify 
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+.max-width{
+    width: 100%;
+}
+.max-height{
+    height:100%;
+}
+.inline-block {
+    display: inline-block;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
+}
+
+
+//responsive
+
+.container-fluid {
+    width: 100%;
+}
+
+.row:after {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+    font-size: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+
+/*偏移*/
+@for $i from 1 through 24 {
+    .col-offset-#{$i} {
+        margin-left: 4.16666666% * $i;
+    }
+}
+
+/* 网格布局 */
+
+/* 超小设备（手机，小于 768px） */
+@for $i from 1 through 24 {
+    .col-xs-#{$i} {
+        float: left;
+        width: 4.16666666% * $i;
+    }
+}
+/* 小型设备（平板电脑，768px 起） */
+@media (min-width: 768px) {
+    @for $i from 1 through 24 {
+        .col-sm-#{$i} {
+            float: left;
+            width: 4.16666666% * $i;
+        }
+    }
+}
+/* 中型设备（台式电脑，992px 起） */
+@media (min-width: 992px) {
+    @for $i from 1 through 24 {
+        .col-md-#{$i} {
+            float: left;
+            width: 4.16666666% * $i;
+        }
+    }
+}
+/* 大型设备（大台式电脑，1200px 起） */
+@media (min-width: 1200px) {
+    @for $i from 1 through 24 {
+        .col-lg-#{$i} {
+            float: left;
+            width: 4.16666666% * $i;
+        }
+    }
+}
+
+
+@media (max-width: 767px) {
+    .hidden-xs {
+        display: none !important;
+    }
+
+    @each $size in visible-xs, visible-sm, visible-md,visible-lg {
+        .#{$size} {
+            @if $size == visible-xs {
+                display: block !important;
+              } @else if($size ==visible-xs-inline){
+                display: block !important;
+              } @else{
+                display: none !important;
+              }
+        }
+      }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {   
+    .hidden-sm {
+        display: none !important;
+    }
+    @each $size in visible-xs, visible-sm, visible-md,visible-lg {
+        .#{$size} {
+            @if $size == visible-sm {
+                display: block !important;
+              } @else if($size ==visible-sm-inline){
+                display: block !important;
+              } @else{
+                display: none !important;
+              }
+        }
+      }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .hidden-md {
+        display: none !important;
+    }
+    @each $size in visible-xs, visible-sm, visible-md,visible-lg {
+        .#{$size} {
+            @if $size == visible-md {
+                display: block !important;
+              } @else if($size ==visible-md-inline){
+                display: block !important;
+              } @else{
+                display: none !important;
+              }
+        }
+      }
+}
+
+@media (min-width: 1200px) {
+    .hidden-lg {
+        display: none !important;
+    }
+    @each $size in visible-xs, visible-sm, visible-md,visible-lg {
+        .#{$size} {
+            @if $size == visible-lg {
+                display: block !important;
+              } @else if($size ==visible-lg-inline){
+                display: block !important;
+              } @else{
+                display: none !important;
+              }
+        }
+      }
+}
